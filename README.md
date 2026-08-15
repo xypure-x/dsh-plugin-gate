@@ -137,3 +137,5 @@ An empty `trustedRoots` list fails closed and rejects external plugin injection.
 This is a high-privilege development tool, not a sandbox. A plugin that is explicitly injected still runs in the Harness process. Do not add untrusted directories to `trustedRoots`, and do not enable unsafe build or release features for unreviewed code.
 
 See [SECURITY-HARDENING-PLAN.md](./SECURITY-HARDENING-PLAN.md) for the implementation roadmap.
+
+Reference project: [dsh-router-standard](https://github.com/yjh051108/dsh-router-standard).

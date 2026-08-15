@@ -205,3 +205,5 @@ x-dsh-plugin-gate-token: <configured-token>
 - [安全加固计划](./SECURITY-HARDENING-PLAN.md)
 - [本次调整记录](./ADJUSTMENT-RECORD.md)
 - [规格索引](./.specs/index.md)
+
+参考项目：[dsh-router-standard](https://github.com/yjh051108/dsh-router-standard)。
