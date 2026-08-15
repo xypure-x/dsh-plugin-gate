@@ -24,6 +24,8 @@ Use the DSH plugin manager to install from the `xypure-x` organization:
 dsh plugin --profile web add github:xypure-x/dsh-plugin-gate
 ```
 
+The repository includes the prebuilt `lib/` entrypoints required by DSH. If you are using a source checkout without `lib/`, use the build-from-source method below before installing it.
+
 Restart the DSH web process, then run:
 
 ```text

@@ -26,6 +26,8 @@
 dsh plugin --profile web add github:xypure-x/dsh-plugin-gate
 ```
 
+仓库会包含 DSH 启动所需的预构建 `lib/` 入口文件。如果使用的是不含 `lib/` 的源码副本，请先使用下方的源码构建方式，再执行安装。
+
 重启 DSH web 进程后执行：
 
 ```text

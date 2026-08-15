@@ -26,7 +26,7 @@ import type Loader from '@deepseek-ai/cordis-plugin-loader'
 import type SystemPrompt from '@deepseek-ai/dsh-system-prompt'
 import type ToolRegistry from '@deepseek-ai/dsh-tools'
 import { defineTool } from '@deepseek-ai/dsh-tools'
-import z from 'schemastery'
+import z from '@deepseek-ai/schemastery'
 import { readdirSync, statSync, readFileSync, writeFileSync, existsSync, mkdirSync, symlinkSync, rmdirSync, appendFileSync, renameSync, lstatSync, rmSync, readlinkSync, realpathSync, chmodSync } from 'node:fs'
 import { join, relative, dirname, resolve } from 'node:path'
 import { homedir, tmpdir } from 'node:os'
@@ -90,7 +90,7 @@ mkdir -p node_modules/@deepseek-ai
 node -e "const fs=require('fs');fs.rmSync('node_modules/@standard-schema',{recursive:true,force:true})"
 link_pkg cordis vendor/cordis
 link_pkg cosmokit vendor/cosmokit
-link_pkg schemastery vendor/schemastery
+link_pkg @deepseek-ai/schemastery vendor/schemastery
 link_pkg @deepseek-ai/dsh-tools packages/core/tools
 link_pkg @deepseek-ai/dsh-llm packages/llm/llm
 link_pkg @deepseek-ai/dsh-system-prompt packages/core/system-prompt
@@ -156,7 +156,7 @@ function scaffoldToolkitSrc(pkgName: string, description: string): string {
  */
 import type { Context } from 'cordis'
 import { defineTool } from '@deepseek-ai/dsh-tools'
-import z from 'schemastery'
+import z from '@deepseek-ai/schemastery'
 
 export const name = ${JSON.stringify(pkgName)}
 export const inject = ['tools']
@@ -217,7 +217,7 @@ import { createUserMessage, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
 import { appendFileSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { homedir } from 'node:os'
-import z from 'schemastery'
+import z from '@deepseek-ai/schemastery'
 
 type AppContext = Context & {
   llm: LlmService
@@ -318,7 +318,7 @@ function scaffoldUiSrc(pkgName: string, description: string): string {
  */
 import type { Context } from 'cordis'
 import { defineTool } from '@deepseek-ai/dsh-tools'
-import z from 'schemastery'
+import z from '@deepseek-ai/schemastery'
 
 export const name = ${JSON.stringify(pkgName)}
 export const inject = ['tools', 'webServer']
@@ -441,7 +441,7 @@ function scaffoldPackageJson(pkgName: string, description: string, form: string)
     '@deepseek-ai/dsh-llm': '>=0.0.1-rc <2',
     '@deepseek-ai/dsh-tools': '>=0.0.1-rc <2',
     'cordis': '>=4.0.0-rc <5',
-    'schemastery': '^3.18.0',
+    '@deepseek-ai/schemastery': '>=3.18.0-rc <4',
   }
   if (withClient) {
     peerDeps['@deepseek-ai/dsh-client-ui-slots'] = '>=0.0.1-rc <2'
