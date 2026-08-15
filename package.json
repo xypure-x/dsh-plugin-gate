@@ -1,0 +1,66 @@
+{
+  "name": "@xypure-x/dsh-plugin-gate",
+  "version": "0.1.0",
+  "description": "Linux-first DSH plugin gate with trusted roots, fail-closed restore, and no arbitrary code execution by default",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xypure-x/dsh-plugin-gate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xypure-x/dsh-plugin-gate/issues"
+  },
+  "homepage": "https://github.com/xypure-x/dsh-plugin-gate",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "scripts/build.sh",
+    "scripts/build-client.sh",
+    "scripts/typecheck.sh",
+    "scripts/security-check.mjs",
+    "scripts/fix-patch.mjs"
+  ],
+  "license": "BSD-3-Clause",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": ">=0.0.1-rc <2",
+    "cordis": ">=4.0.0-rc <5",
+    "schemastery": "^3.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "tsdown": "^0.22.14",
+    "typescript": "^5.9.0"
+  },
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "build:client": "bash scripts/build-client.sh",
+    "typecheck": "bash scripts/typecheck.sh",
+    "security:check": "node scripts/security-check.mjs"
+  }
+}
